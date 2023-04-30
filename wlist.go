@@ -118,7 +118,7 @@ func compare(line string, wg *sync.WaitGroup, m *sync.Mutex, cell *Cell, reg *re
 				cell.Encryption = "wpa"
 			case "wpa2":
 				cell.Encryption = "wpa2"
-			case "signal":
+			case "signal_quality":
 				if quality, err := strconv.ParseInt(values[i], 10, 32); err == nil {
 					cell.SignalQuality = int(quality)
 				}
@@ -126,7 +126,7 @@ func compare(line string, wg *sync.WaitGroup, m *sync.Mutex, cell *Cell, reg *re
 				if total, err := strconv.ParseInt(values[i], 10, 32); err == nil {
 					cell.SignalTotal = int(total)
 				}
-			case "signal_level":
+			case "signal":
 				if level, err := strconv.ParseInt(values[i], 10, 32); err == nil {
 					cell.SignalLevel = int(level)
 				}
