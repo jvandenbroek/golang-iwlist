@@ -1,6 +1,7 @@
 package wlist
 
 import (
+	"fmt"
 	"os/exec"
 	"regexp"
 	"strconv"
@@ -76,6 +77,7 @@ func parse(input string) (cells []Cell, err error) {
 		// compare lines to regexps
 		wg.Add(len(regxp))
 		for _, reg := range regxp {
+			fmt.Println(line)
 			go compare(line, &wg, &m, cell, reg)
 		}
 		wg.Wait()
@@ -91,7 +93,7 @@ func compare(line string, wg *sync.WaitGroup, m *sync.Mutex, cell *Cell, reg *re
 		keys := reg.SubexpNames()
 
 		m.Lock()
-
+		fmt.Println(keys, values)
 		for i := 1; i < len(keys); i++ {
 			switch keys[i] {
 			case "essid":
