@@ -37,7 +37,7 @@ func init() {
 		regexp.MustCompile(`^Encryption key:(?P<encryption_key>.+)$`),
 		regexp.MustCompile(`^IE:\ WPA\ Version\ (?P<wpa>.+)$`),
 		regexp.MustCompile(`^IE:\ IEEE\ 802\.11i/WPA2\ Version\ (?P<wpa2>)$`),
-		regexp.MustCompile(`^Quality:(?P<signal_quality>\d+)/(?P<signal_total>\d+)\s+Signal level:(?P<signal_level>.+) dBm\s+Noise level:(?P<noise_level>.+) dBm$`),
+		regexp.MustCompile(`^Quality[:=](?P<signal_quality>\d+)\/(?P<signal_total>\d+)\s+Signal level[:=](?P<signal_level>.+) dBm(\s+Noise level:(?P<noise_level>.+) dBm)?$`),
 	}
 }
 
